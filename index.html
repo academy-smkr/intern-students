@@ -1,43 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Menu Bar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Resume — Your Name</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
+        :root{
+            --accent:#0b84ff;
+            --muted:#6b7280;
+            --bg:#f7fbff;
+            --card:#ffffff;
+            --max-width:960px;
         }
+        *{box-sizing:border-box}
+        body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial;line-height:1.35;margin:24px;background:linear-gradient(180deg,var(--bg),#ffffff);color:#0f1724}
+        .container{max-width:var(--max-width);margin:0 auto;background:transparent}
+        .resume{display:grid;grid-template-columns:280px 1fr;gap:28px;background:transparent}
+        .card{background:var(--card);border-radius:12px;padding:22px;box-shadow:0 6px 18px rgba(12,32,63,0.06)}
 
-        /* Menu bar */
-        .menu-bar {
-            background-color: #333;
-            padding: 10px;
-            display: flex;
-            align-items: center;
+        /* Left column */
+        .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+        .photo{width:120px;height:120px;border-radius:999px;overflow:hidden;border:4px solid rgba(11,132,255,0.12);background:linear-gradient(135deg,#e6f0ff,#fff)}
+        .photo img{width:100%;height:100%;object-fit:cover;display:block}
+        .name{font-family:'Playfair Display',serif;font-size:22px;margin-top:12px}
+        .role{color:var(--muted);font-weight:600;font-size:13px;margin-top:2px}
+        .contact{width:100%;margin-top:14px}
+        .contact a{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;color:#0f1724;text-decoration:none}
+        .contact a:hover{background:#f3f6ff}
+        .label{font-size:12px;color:var(--muted);margin-top:18px;margin-bottom:8px}
+        .skills{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        .skill{background:#f3f5f7;padding:8px;border-radius:8px;font-size:13px;color:#0b1220}
+
+        /* Right column */
+        .header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+        .summary{font-size:15px;color:#111827}
+        h3.section{margin:0 0 10px 0;font-size:16px}
+        .section-block{margin-top:18px}
+        .item{padding:14px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);box-shadow:inset 0 1px 0 rgba(255,255,255,0.6)}
+        .item + .item{margin-top:12px}
+        .item .meta{display:flex;justify-content:space-between;align-items:center}
+        .item .title{font-weight:700}
+        .muted{color:var(--muted);font-size:13px}
+        .bullets{margin-top:8px;padding-left:18px}
+
+        /* Footer / print adjustments */
+        @media (max-width:900px){
+            .resume{grid-template-columns:1fr;}
+            .profile{flex-direction:row;align-items:center;text-align:left;gap:14px}
         }
-
-        /* Menu buttons */
-        .menu-bar a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 8px 16px;
-            margin-right: 10px;
-        }
-
-        .menu-bar a:hover {
-            background-color: #555;
-            border-radius: 4px;
+        @media print{
+            body{margin:0;background:white}
+            .resume{gap:8px}
+            .card{box-shadow:none;border-radius:0;padding:12px}
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="resume">
+            <aside class="card">
+                <div class="profile">
+                    <div class="photo" aria-hidden="true">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-1.2.1&s=placeholder" alt="Profile photo">
+                    </div>
+                    <div class="name">Your Name</div>
+                    <div class="role">Frontend Developer • UI/UX Enthusiast</div>
+                </div>
 
-    <div class="menu-bar">
-        <a href="#">Home</a>
-       
+                <div class="contact">
+                    <div class="label">Contact</div>
+                    <a href="mailto:you@example.com">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13A2.5 2.5 0 0 0 21 15.5v-7" stroke="#0b84ff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span class="muted">you@example.com</span>
+                    </a>
+                    <a href="tel:+1234567890">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.2.4 2.37.84 3.48a2 2 0 0 1-.45 2.11L8.91 11.09a16 16 0 0 0 6 6l1.78-1.78a2 2 0 0 1 2.11-.45c1.12.44 2.3.72 3.48.84A2 2 0 0 1 22 16.92z" stroke="#0b84ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span class="muted">+1 (234) 567-890</span>
+                    </a>
+                    <a href="#">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 1 1-8 0 6 6 0 0 1 8 0z" stroke="#0b84ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span class="muted">linkedin.com/in/you</span>
+                    </a>
+                </div>
+
+                <div class="label">Skills</div>
+                <div class="skills">
+                    <div class="skill">HTML</div>
+                    <div class="skill">CSS / SCSS</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">React</div>
+                    <div class="skill">Accessibility</div>
+                    <div class="skill">Figma</div>
+                </div>
+
+                <div class="label">Languages</div>
+                <div class="skills">
+                    <div class="skill">English — Fluent</div>
+                    <div class="skill">Urdu — Native</div>
+                </div>
+            </aside>
+
+            <main>
+                <div class="card">
+                    <div class="header">
+                        <div>
+                            <div style="font-size:20px;font-weight:800">Your Name</div>
+                            <div style="color:var(--muted);margin-top:6px">Frontend Developer — building accessible, performant web apps</div>
+                        </div>
+                        <div style="text-align:right;color:var(--muted);font-size:13px">Location • Remote-ready</div>
+                    </div>
+
+                    <div class="section-block">
+                        <h3 class="section">Summary</h3>
+                        <div class="summary">Product-minded frontend developer with 3+ years of experience building responsive interfaces and improving UX. Strong foundation in modern JavaScript, component design, and accessibility. Enjoys turning design systems into delightful user experiences.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <h3 class="section">Work Experience</h3>
+                        <div class="item">
+                            <div class="meta">
+                                <div>
+                                    <div class="title">Frontend Developer — Acme Co.</div>
+                                    <div class="muted">May 2022 — Present • Remote</div>
+                                </div>
+                                <div class="muted">Built with: React, TypeScript</div>
+                            </div>
+                            <ul class="bullets">
+                                <li>Led frontend work for the marketing site, improving Lighthouse performance by 42%.</li>
+                                <li>Created a design system library used across three products, reducing development time.</li>
+                            </ul>
+                        </div>
+
+                        <div class="item">
+                            <div class="meta">
+                                <div>
+                                    <div class="title">UI Engineer — Orbit Labs</div>
+                                    <div class="muted">Jan 2020 — Apr 2022 • London, UK</div>
+                                </div>
+                                <div class="muted">Built with: Vue, SCSS</div>
+                            </div>
+                            <ul class="bullets">
+                                <li>Implemented accessible components and reduced time-to-interactive by 0.9s.</li>
+                                <li>Mentored junior engineers and introduced automated visual tests.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section-block">
+                        <h3 class="section">Education</h3>
+                        <div class="item">
+                            <div class="meta">
+                                <div>
+                                    <div class="title">B.S. Computer Science — University Name</div>
+                                    <div class="muted">2016 — 2020</div>
+                                </div>
+                                <div class="muted">GPA: 3.8/4.0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-block">
+                        <h3 class="section">Projects</h3>
+                        <div class="item">
+                            <div class="title">Design System Library</div>
+                            <div class="muted">React, Storybook</div>
+                            <div class="bullets"><li>Built accessible components and documented tokens in Storybook.</li></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
-
 </body>
 </html>
