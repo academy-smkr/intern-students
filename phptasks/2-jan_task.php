@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>PHP task1</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>task</h2>
+    <h2>Task</h2>
 
     <?php
     $rollNumber = 6;

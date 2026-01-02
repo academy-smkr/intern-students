@@ -1,0 +1,14 @@
+*{
+    background-color: rgb(148, 148, 224);
+    text-align: center;
+    line-height: 20px;
+    font-family: Georgia;
+}
+
+p{
+    color: rgb(3, 3, 81);
+}
+
+h2{
+    color: rgb(111, 20, 20);
+}
