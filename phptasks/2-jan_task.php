@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>PHP task1</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2>Task</h2>
