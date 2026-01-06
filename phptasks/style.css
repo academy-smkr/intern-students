@@ -1,14 +1,18 @@
 *{
-    background-color: rgb(148, 148, 224);
-    text-align: center;
+    background-color: rgb(255, 253, 190);
     line-height: 20px;
     font-family: Georgia;
 }
 
 p{
-    color: rgb(3, 3, 81);
+    color: rgb(36, 13, 117);
 }
 
 h2{
-    color: rgb(111, 20, 20);
+    color: rgb(255, 0, 0);
+    text-align: center;
+}
+
+b{
+    color: rgb(55, 35, 240);
 }
