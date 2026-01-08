@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Employee Details</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="emp_style.css">
 </head>
 <body>
     <header>
