@@ -2,7 +2,89 @@
 <html>
 <head>
     <title>Employee Details</title>
-    <link rel="stylesheet" href="emp_style.css">
+    <style>
+        
+        *{
+            background-color: #499FA4;
+            line-height: 20px;
+            font-family: Georgia;
+            margin: auto;
+            padding: 10px;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        p{
+            color: #3d4a55;
+        }
+
+        h2 {
+            background: linear-gradient(135deg, #E9BC8B, #f3d2a6);
+            color: #2f3e46;
+            padding: 12px 35px;
+            border-radius: 30px;
+            letter-spacing: 2px;
+            font-size: 26px;
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        h2:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease;
+        }
+
+
+        .ab {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .a {
+            background-color: #BEC6C3;
+            width: 260px;
+            padding: 15px 20px;
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease-in, box-shadow 0.1s ease;
+        }
+
+        .a:hover{
+            transform: scale(1.05);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .a b {
+            display: block;
+            margin-bottom: -20px;
+            color: #2f3e46;
+            background-color: #BEC6C3;
+        }
+
+        .total {
+            display: block;
+            margin-top: 8px;
+            font-weight: bold;
+            color: #1b3a4b;
+            font-size: 16px;
+            border-radius: 30px;
+            text-align: center;
+            background-color: rgb(150, 158, 168);
+        }
+
+
+        main {
+            padding: 30px;
+        }
+
+    </style>
 </head>
 <body>
     <header>
