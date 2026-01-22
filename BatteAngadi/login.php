@@ -48,24 +48,25 @@ if (isset($_POST["submit"])) {
 <html>
 <head>
     <title>Login into your account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Verdana&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', 'Courier New', serif;
+            font-family: 'Verdana', 'Arial', sans-serif;
         }
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #e8dcc8 0%, #d4c4b0 100%);
-            background-image: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 35px,
-                rgba(0,0,0,.05) 35px,
-                rgba(0,0,0,.05) 70px
-            );
+            background-color: #000000;
+            background-image: 
+                linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+                linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
+                linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -80,11 +81,13 @@ if (isset($_POST["submit"])) {
 
         header h2 {
             font-size: 32px;
-            color: #6b5b4c;
+            color: #E8E8E8;
             letter-spacing: 2px;
-            font-weight: 600;
-            font-style: italic;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: 700;
+            font-style: normal;
+            text-transform: lowercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-family: 'Anton', sans-serif;
         }
 
         #forms {
@@ -93,52 +96,59 @@ if (isset($_POST["submit"])) {
         }
 
         form {
-            background-color: #f5e6d3;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
             padding: 40px;
             width: 100%;
             max-width: 380px;
-            border: 3px solid #9e8b7e;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
+            border: 2px solid #A8A8A8;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(192, 192, 192, 0.3);
+            transition: all 0.2s ease;
+            border-top: 1px solid #E8E8E8;
         }
 
         form:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(192, 192, 192, 0.4), 0 0 12px rgba(192, 192, 192, 0.2);
         }
 
         label {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            color: #6b5b4c;
+            color: #E8E8E8;
             display: block;
             margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
         }
 
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 12px 14px;
+            padding: 10px 12px;
             margin-bottom: 18px;
-            border: 2px solid #9e8b7e;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background-color: #fcf8f3;
+            border: 1px solid #808080;
+            border-top: 1px solid #606060;
+            border-left: 1px solid #606060;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            background-color: #1a1a1a;
+            color: #000000ff;
+            font-weight: 500;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         input[type="text"]:focus,
         input[type="password"]:focus {
-            border-color: #6b5b4c;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(107, 91, 76, 0.1);
+            border-color: #C0C0C0;
+            background-color: #252525;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 8px rgba(192, 192, 192, 0.3);
             outline: none;
         }
 
         input[type="checkbox"] {
             margin-right: 8px;
             cursor: pointer;
+            accent-color: #A8A8A8;
         }
 
         input[type="checkbox"] + label {
@@ -146,32 +156,37 @@ if (isset($_POST["submit"])) {
             margin-bottom: 0;
             text-transform: none;
             font-weight: normal;
-            font-size: 13px;
+            font-size: 12px;
             margin-bottom: 20px;
         }
 
         input[type="submit"] {
             width: 100%;
-            padding: 13px;
-            background: linear-gradient(135deg, #9e8b7e 0%, #8b7765 100%);
-            color: #f5e6d3;
-            border: 2px solid #6b5b4c;
-            font-size: 15px;
+            padding: 11px;
+            background: linear-gradient(180deg, #D3D3D3 0%, #A8A8A8 100%);
+            color: #000000;
+            border: 2px solid #808080;
+            border-top: 1px solid #FFFFFF;
+            border-left: 1px solid #FFFFFF;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             margin-top: 10px;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
+            transition: all 0.15s ease;
+            letter-spacing: 0.5px;
+            text-transform: lowercase;
+            box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         input[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            background: linear-gradient(135deg, #a67c52 0%, #9e8b7e 100%);
+            background: linear-gradient(180deg, #000000ff 0%, #C0C0C0 100%);
+            transform: translateY(-1px);
+            box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7);
         }
 
         input[type="submit"]:active {
             transform: translateY(0);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
         }
 
         .message {
@@ -180,42 +195,45 @@ if (isset($_POST["submit"])) {
             font-weight: 600;
             padding: 12px;
             border: 2px solid;
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
         }
 
         .error {
-            color: #8b4513;
-            background-color: #f5deb3;
-            border-color: #8b4513;
+            color: #000000;
+            background-color: #A8A8A8;
+            border-color: #606060;
         }
 
         .success {
-            color: #556b2f;
-            background-color: #f0fff0;
-            border-color: #556b2f;
+            color: #000000;
+            background-color: #C0C0C0;
+            border-color: #808080;
         }
 
         a {
-            color: #a67c52;
+            color: #E8E8E8;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         a:hover {
-            color: #8b6f47;
+            color: #FFFFFF;
         }
 
         .login-link {
             text-align: center;
             margin-top: 18px;
-            font-size: 13px;
-            color: #8b7765;
+            font-size: 12px;
+            color: #E8E8E8;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <header>
-        <h2>Shoply</h2>
+        <h2>Batte Angadi</h2>
     </header>
     
     <div id="forms">
@@ -230,7 +248,7 @@ if (isset($_POST["submit"])) {
             <label for="agree">Keep me logged in</label><br><br>
 
             <input type="submit" name="submit" value="Login">
-            Don't have an account? <a href="register.php">Register</a>
+            <div class="login-link">Don't have an account? <a href="register.php">Register</a></div>
         </form>
     </div>
 
