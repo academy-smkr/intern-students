@@ -64,7 +64,8 @@ if (isset($_POST['login'])) {
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
         <button name="login">Login</button><br><br>
-        <a href="register.php">Did not register before?</a>
+        <a href="register.php">Did not register before?</a><br>
+        <a href="forgotpassword.php">forgot password?</a>
     </form>
 </div>
 
