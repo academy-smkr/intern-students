@@ -21,7 +21,7 @@ if(isset($_POST['login'])){
 
     if($admin && password_verify($pass, $admin['password'])){
         $_SESSION['admin'] = $admin['id'];
-        header("Location: index1.php"); // Admin dashboard
+        header("Location: index.php"); // Admin dashboard
         exit();
     } else {
         $message = "Invalid email or password!";
@@ -39,8 +39,8 @@ if(isset($_POST['login'])){
         .container { max-width: 400px; margin: 100px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
         h2 { text-align: center; margin-bottom: 20px; }
         input[type=email], input[type=password] { width: 100%; padding: 10px; margin: 5px 0 15px; border-radius: 4px; border: 1px solid #ccc; }
-        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #0056b3; }
+        button { width: 100%; padding: 10px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #495057; }
         .message { color: red; text-align: center; margin-bottom: 15px; }
     </style>
 </head>

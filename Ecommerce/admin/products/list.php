@@ -28,23 +28,23 @@ $res = mysqli_query($conn, "SELECT * FROM products");
     <title>Products List</title>
     <style>
         body { font-family: Arial; background: #f4f6f8; margin: 0; }
-        .sidebar { width: 200px; float: left; background: #333; color: #fff; min-height: 100vh; padding: 20px; box-sizing: border-box; }
-        .sidebar a { display: block; color: #fff; text-decoration: none; padding: 10px 0; }
-        .sidebar a:hover { background: #444; }
+        .sidebar { width: 200px; float: left; background: #f8f9fa; color: #495057; min-height: 100vh; padding: 20px; box-sizing: border-box; }
+        .sidebar a { display: block; color: #495057; text-decoration: none; padding: 10px 0; }
+        .sidebar a:hover { background: #e9ecef; }
         .content { margin-left: 220px; padding: 20px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 12px; border-bottom: 1px solid #ddd; text-align: center; }
-        th { background: #007bff; color: #fff; }
+        th { background: #6c757d; color: #fff; }
         img { border-radius: 4px; }
-        .btn { padding: 6px 12px; background: #007bff; color: #fff; text-decoration: none; border-radius: 4px; }
-        .btn:hover { background: #0056b3; }
+        .btn { padding: 6px 12px; background: #6c757d; color: #fff; text-decoration: none; border-radius: 4px; }
+        .btn:hover { background: #495057; }
     </style>
 </head>
 <body>
 
 <div class="sidebar">
     <h2>Admin Panel</h2>
-    <a href="../index1.php">Dashboard</a>
+    <a href="../index.php">Dashboard</a>
     <a href="list.php">Products</a>
     <a href="../users/list.php">Users</a>
     <a href="../orders/list.php">Orders</a>

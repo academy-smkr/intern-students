@@ -85,7 +85,7 @@ $res = mysqli_query($conn, "SELECT * FROM users");
         }
 
         .nice-table th {
-            background: #007bff;
+            background: #6c757d;
             color: #fff;
         }
 
@@ -98,11 +98,12 @@ $res = mysqli_query($conn, "SELECT * FROM users");
         }
 
         .badge.active {
-            background: #28a745;
+            background: #6c757d;
         }
 
         .badge.inactive {
-            background: #dc3545;
+            background: #adb5bd;
+            color: #495057;
         }
 
         /* Action buttons */
@@ -116,11 +117,12 @@ $res = mysqli_query($conn, "SELECT * FROM users");
         }
 
         .action-btn.edit {
-            background: #17a2b8;
+            background: #6c757d;
         }
 
         .action-btn.delete {
-            background: #dc3545;
+            background: #adb5bd;
+            color: #495057;
         }
 
         .action-btn:hover {
@@ -137,7 +139,7 @@ $res = mysqli_query($conn, "SELECT * FROM users");
     <div class="sidebar">
         <h2>Admin Panel</h2>
 
-        <a href="../index1.php">Dashboard</a>
+        <a href="../index.php">Dashboard</a>
         <a href="../products/list.php">Products</a>
         <a href="list.php">Users</a>
         <a href="../orders/list.php">Orders</a>

@@ -56,8 +56,8 @@ if (isset($_POST['register'])) {
         .container { max-width: 400px; margin: 50px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
         h2 { text-align: center; margin-bottom: 20px; }
         input[type=text], input[type=email], input[type=password] { width: 100%; padding: 10px; margin: 5px 0 15px; border-radius: 4px; border: 1px solid #ccc; }
-        input[type=submit] { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        input[type=submit]:hover { background: #0056b3; }
+        input[type=submit] { width: 100%; padding: 10px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        input[type=submit]:hover { background: #495057; }
         .message { color: red; text-align: center; margin-bottom: 15px; }
     </style>
 </head>

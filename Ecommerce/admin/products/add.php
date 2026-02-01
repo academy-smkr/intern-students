@@ -34,8 +34,8 @@ if (isset($_POST['add'])) {
         .content { margin-left: 220px; padding: 20px; }
         .card { background: #fff; padding: 20px; border-radius: 6px; width: 400px; }
         input { width: 100%; padding: 10px; margin-top: 10px; box-sizing: border-box; }
-        button { margin-top: 15px; padding: 10px; width: 100%; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #0056b3; }
+        button { margin-top: 15px; padding: 10px; width: 100%; background: #6c757d; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #495057; }
         .error { color: red; margin-top: 10px; }
     </style>
 </head>
@@ -43,7 +43,7 @@ if (isset($_POST['add'])) {
 
 <div class="sidebar">
     <h2>Admin Panel</h2>
-    <a href="../index1.php">Dashboard</a>
+    <a href="../index.php">Dashboard</a>
     <a href="list.php">Products</a>
     <a href="../users/list.php">Users</a>
     <a href="../orders/list.php">Orders</a>

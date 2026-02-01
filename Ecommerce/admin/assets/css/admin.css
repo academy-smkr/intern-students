@@ -1,16 +1,7 @@
-:root{
-    --bg: #f4f6f9;
-    --white: #ffffff;
-    --primary: #6c757d;
-    --primary-dark: #495057;
-    --muted: #adb5bd;
-    --text: #333333;
-}
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
-    background:var(--bg);
-    color:var(--text);
+    background:#f4f6f9;
 }
 
 /* Layout */
@@ -21,25 +12,24 @@ body{
 /* Sidebar */
 .sidebar{
     width:240px;
-    background:#f8f9fa;
+    background:#1e272e;
     min-height:100vh;
-    color:var(--text);
+    color:white;
 }
 .sidebar h2{
     padding:20px;
     text-align:center;
-    background:var(--primary);
-    color:var(--white);
+    background:#0fbcf9;
 }
 .sidebar a{
     display:block;
     padding:15px 20px;
-    color:var(--primary-dark);
+    color:#ccc;
     text-decoration:none;
 }
 .sidebar a:hover{
-    background:#e9ecef;
-    color:var(--text);
+    background:#485460;
+    color:white;
 }
 
 /* Main */
@@ -66,7 +56,7 @@ body{
 }
 .card h1{
     margin-top:10px;
-    color:var(--primary);
+    color:#0fbcf9;
 }
 
 /* Tables */
@@ -82,8 +72,8 @@ th,td{
     text-align:left;
 }
 th{
-    background:var(--primary);
-    color:var(--white);
+    background:#0fbcf9;
+    color:white;
 }
 .user-info-card {
     max-width: 600px;
@@ -134,6 +124,6 @@ th{
 }
 
 .status.active {
-    background: #f1f3f5;
-    color: var(--primary-dark);
+    background: #e6f4ea;
+    color: #1e7e34;
 }

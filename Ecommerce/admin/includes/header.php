@@ -8,7 +8,7 @@ if(!isset($_SESSION['admin'])){
 <html>
 <head>
 <title>Admin Panel</title>
-<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +28,8 @@ if(!isset($_SESSION['admin'])){
         /* SIDEBAR */
         .sidebar {
             width: 220px;
-            background: #2c2c2c;
-            color: #fff;
+            background: #f8f9fa;
+            color: #495057;
             padding: 20px;
             box-sizing: border-box;
         }
@@ -41,7 +41,7 @@ if(!isset($_SESSION['admin'])){
 
         .sidebar a {
             display: block;
-            color: #fff;
+            color: #495057;
             text-decoration: none;
             padding: 10px;
             margin: 5px 0;
@@ -49,7 +49,7 @@ if(!isset($_SESSION['admin'])){
         }
 
         .sidebar a:hover {
-            background: #444;
+            background: #e9ecef;
         }
 
         /* MAIN CONTENT */
@@ -85,7 +85,7 @@ if(!isset($_SESSION['admin'])){
 
         .card h1 {
             margin: 0;
-            color: #007bff;
+            color: #6c757d;
             font-size: 48px;
         }
     </style>
