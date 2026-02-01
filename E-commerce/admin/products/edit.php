@@ -39,7 +39,7 @@ if (isset($_POST['update'])) {
 
 <div class="sidebar">
     <h2>Admin Panel</h2>
-    <a href="../index1.php">Dashboard</a>
+    <a href="../index.php">Dashboard</a>
     <a href="list.php">Products</a>
     <a href="../users/list.php">Users</a>
     <a href="../orders/list.php">Orders</a>
