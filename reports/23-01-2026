@@ -1,0 +1,21 @@
+we learnt
+
+CRUD operations
+delete operations
+where does id come from? - from url
+mini project- php login,crud &image upload ,student management system
+project features:
+    user registration and login
+    password hashing
+    session-based authentication
+    add/view/edit/delete students(crud)
+    image upload (student photo)
+    basic security (prepared statements, htmlspecialchars)
+prepared statements
+bind 
+why use prepared statements
+password hash
+password verify
+htmlspecialhars
+bind with parameters
+error handling and basic security
