@@ -15,11 +15,21 @@ session_start();
             font-family: 'Verdana', 'Arial', sans-serif;
         }
 
+        :root {
+            --bg-dark: #0a001a;
+            --bg-mid: #2b0b3d;
+            --bg-darker: #2a0a3a;
+            --accent: #B99BFF;
+            --accent-strong: #6F3FBF;
+            --light: #EDE7FF;
+            --muted: rgba(185, 155, 255, 0.05);
+        }
+
         body {
-            background-color: #0a0a0a;
+            background-color: var(--bg-dark);
             background-image: 
-                linear-gradient(0deg, transparent 24%, rgba(192, 192, 192, 0.05) 25%, rgba(192, 192, 192, 0.05) 26%, transparent 27%, transparent 74%, rgba(192, 192, 192, 0.05) 75%, rgba(192, 192, 192, 0.05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(192, 192, 192, 0.05) 25%, rgba(192, 192, 192, 0.05) 26%, transparent 27%, transparent 74%, rgba(192, 192, 192, 0.05) 75%, rgba(192, 192, 192, 0.05) 76%, transparent 77%, transparent);
+                linear-gradient(0deg, transparent 24%, var(--muted) 25%, var(--muted) 26%, transparent 27%, transparent 74%, var(--muted) 75%, var(--muted) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, var(--muted) 25%, var(--muted) 26%, transparent 27%, transparent 74%, var(--muted) 75%, var(--muted) 76%, transparent 77%, transparent);
             background-size: 50px 50px;
             min-height: 100vh;
         }
@@ -28,24 +38,24 @@ session_start();
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
+            background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%);
             padding: 18px 40px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(192, 192, 192, 0.4);
-            border-bottom: 3px solid #C0C0C0;
-            border-top: 2px solid #E8E8E8;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(185, 155, 255, 0.4);
+            border-bottom: 3px solid var(--accent);
+            border-top: 2px solid var(--light);
         }
 
         .top-bar h1 {
-            color: #C0C0C0;
+            color: var(--accent);
             font-size: 32px;
             font-weight: 700;
             letter-spacing: 2px;
             padding: 8px 20px;
-            border: 2px solid #E8E8E8;
+            border: 2px solid var(--light);
             display: inline-block;
             font-style: normal;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(185, 155, 255, 0.1) 0%, transparent 100%);
             font-family: 'Oswald', sans-serif;
         }
 
@@ -55,23 +65,23 @@ session_start();
         }
 
         #buttons {
-            color: #000000;
+            color: var(--bg-dark);
             text-decoration: none;
             padding: 10px 24px;
-            border: 2px solid #A8A8A8;
+            border: 2px solid rgba(185,155,255,0.45);
             border-radius: 3px;
             font-weight: 600;
             font-size: 12px;
             transition: all 0.2s ease;
             cursor: pointer;
-            background: linear-gradient(180deg, #E8E8E8 0%, #C0C0C0 100%);
+            background: linear-gradient(180deg, var(--light) 0%, var(--accent) 100%);
             letter-spacing: 1px;
             text-transform: lowercase;
             box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         #buttons:hover {
-            background: linear-gradient(180deg, #FFFFFF 0%, #D3D3D3 100%);
+            background: linear-gradient(180deg, #F8F4FF 0%, var(--light) 100%);
             transform: translateY(-1px);
             box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7);
         }
@@ -84,30 +94,30 @@ session_start();
         }
 
         .profile-card {
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, var(--bg-mid) 0%, var(--bg-darker) 100%);
             padding: 50px 40px;
             width: 100%;
             max-width: 500px;
-            border: 2px solid #A8A8A8;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(192, 192, 192, 0.3);
+            border: 2px solid rgba(185,155,255,0.45);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(185, 155, 255, 0.3);
             border-radius: 0px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border-top: 1px solid #E8E8E8;
+            border-top: 1px solid var(--light);
         }
 
         .profile-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(192, 192, 192, 0.4), 0 0 12px rgba(192, 192, 192, 0.2);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(185,155,255,0.4), 0 0 12px rgba(185,155,255,0.2);
         }
 
         .profile-card h2 {
             font-size: 28px;
-            color: #E8E8E8;
+            color: var(--light);
             margin-bottom: 30px;
             font-weight: 700;
             font-style: normal;
             text-align: center;
-            border-bottom: 2px solid #A8A8A8;
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 15px;
             text-transform: lowercase;
             letter-spacing: 1px;
@@ -116,7 +126,7 @@ session_start();
 
         .profile-card h3 {
             font-size: 18px;
-            color: #C0C0C0;
+            color: var(--accent);
             margin-bottom: 20px;
             text-align: center;
             font-weight: 600;
@@ -127,16 +137,16 @@ session_start();
         .profile-info {
             margin-bottom: 20px;
             padding: 15px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-            border-left: 3px solid #A8A8A8;
+            background: linear-gradient(135deg, var(--bg-mid) 0%, var(--bg-darker) 100%);
+            border-left: 3px solid var(--accent);
             border-radius: 0px;
-            border: 1px solid #404040;
-            border-left: 3px solid #C0C0C0;
+            border: 1px solid rgba(50,20,70,0.35);
+            border-left: 3px solid var(--accent);
         }
 
         .profile-info label {
             font-weight: 600;
-            color: #E8E8E8;
+            color: var(--light);
             display: block;
             font-size: 11px;
             text-transform: lowercase;
@@ -145,7 +155,7 @@ session_start();
         }
 
         .profile-info p {
-            color: #C0C0C0;
+            color: var(--accent);
             font-size: 14px;
             word-break: break-word;
             font-weight: 500;
@@ -160,9 +170,9 @@ session_start();
 
         .btn {
             padding: 11px 24px;
-            border: 2px solid #808080;
-            border-top: 1px solid #FFFFFF;
-            border-left: 1px solid #FFFFFF;
+            border: 2px solid rgba(120,80,200,0.2);
+            border-top: 1px solid rgba(255,255,255,0.3);
+            border-left: 1px solid rgba(255,255,255,0.3);
             border-radius: 3px;
             font-weight: 600;
             font-size: 12px;
@@ -176,68 +186,68 @@ session_start();
         }
 
         .btn-logout {
-            background: linear-gradient(180deg, #C0C0C0 0%, #A8A8A8 100%);
-            color: #000000;
+            background: linear-gradient(180deg, var(--light) 0%, var(--accent) 100%);
+            color: var(--bg-dark);
         }
 
         .btn-logout:hover {
-            background: linear-gradient(180deg, #D3D3D3 0%, #B8B8B8 100%);
+            background: linear-gradient(180deg, #F3ECFF 0%, var(--accent) 100%);
             transform: translateY(-1px);
             box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7);
         }
 
         .btn-home {
-            background: linear-gradient(180deg, #A8A8A8 0%, #909090 100%);
-            color: #000000;
+            background: linear-gradient(180deg, var(--accent) 0%, #8a6eff 100%);
+            color: var(--bg-dark);
         }
 
         .btn-home:hover {
-            background: linear-gradient(180deg, #B8B8B8 0%, #A0A0A0 100%);
+            background: linear-gradient(180deg, #9b7bff 0%, #8a6eff 100%);
             transform: translateY(-1px);
             box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7);
         }
 
         .no-login {
             text-align: center;
-            color: #C0C0C0;
+            color: var(--accent);
             font-size: 14px;
             font-weight: 500;
         }
 
         .no-login a {
-            color: #E8E8E8;
+            color: var(--light);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s ease;
         }
 
         .no-login a:hover {
-            color: #FFFFFF;
+            color: var(--light);
         }
 
         footer {
-            background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
-            color: #C0C0C0;
+            background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
             padding: 20px 40px;
             text-align: center;
             margin-top: 60px;
-            border-top: 3px solid #C0C0C0;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(192, 192, 192, 0.3);
+            border-top: 3px solid var(--accent);
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(185,155,255,0.3);
             font-weight: 600;
             text-transform: lowercase;
             letter-spacing: 0.5px;
         }
 
         footer a {
-            color: #E8E8E8;
+            color: var(--light);
             text-decoration: none;
             transition: color 0.2s ease;
             font-weight: 600;
         }
 
         footer a:hover {
-            color: #FFFFFF;
-            text-shadow: 0 0 8px rgba(192, 192, 192, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 10px rgba(185,155,255,0.45);
         }
     </style>
 </head>

@@ -65,14 +65,24 @@ if (isset($_POST["submit"])) {
             font-family: 'Verdana', 'Arial', sans-serif;
         }
 
+        :root {
+            --bg-dark: #0a001a;
+            --bg-mid: #2b0b3d;
+            --bg-darker: #2a0a3a;
+            --accent: #B99BFF;
+            --accent-strong: #6F3FBF;
+            --light: #EDE7FF;
+            --muted: rgba(185, 155, 255, 0.05);
+        }
+
         body {
             min-height: 100vh;
-            background-color: #000000;
+            background-color: var(--bg-dark);
             background-image: 
-                linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
-                linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
-                linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+                linear-gradient(45deg, var(--bg-mid) 25%, transparent 25%),
+                linear-gradient(-45deg, var(--bg-mid) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, var(--bg-mid) 75%),
+                linear-gradient(-45deg, transparent 75%, var(--bg-mid) 75%);
             background-size: 40px 40px;
             background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
             display: flex;
@@ -89,7 +99,7 @@ if (isset($_POST["submit"])) {
 
         header h2 {
             font-size: 32px;
-            color: #E8E8E8;
+            color: var(--light);
             letter-spacing: 2px;
             font-weight: 700;
             font-style: normal;
@@ -104,25 +114,25 @@ if (isset($_POST["submit"])) {
         }
 
         form {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-mid) 100%);
             padding: 40px;
             width: 100%;
             max-width: 380px;
-            border: 2px solid #A8A8A8;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(192, 192, 192, 0.3);
+            border: 2px solid rgba(185,155,255,0.45);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(185,155,255,0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border-top: 1px solid #E8E8E8;
+            border-top: 1px solid var(--light);
         }
 
         form:hover {
             transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(192, 192, 192, 0.4), 0 0 12px rgba(192, 192, 192, 0.2);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(185,155,255,0.4), 0 0 12px rgba(185,155,255,0.2);
         }
 
         label {
             font-size: 12px;
             font-weight: 600;
-            color: #E8E8E8;
+            color: var(--light);
             display: block;
             margin-bottom: 8px;
             text-transform: lowercase;
@@ -134,29 +144,29 @@ if (isset($_POST["submit"])) {
             width: 100%;
             padding: 10px 12px;
             margin-bottom: 18px;
-            border: 1px solid #808080;
-            border-top: 1px solid #606060;
-            border-left: 1px solid #606060;
+            border: 1px solid rgba(185,155,255,0.25);
+            border-top: 1px solid rgba(150,120,255,0.12);
+            border-left: 1px solid rgba(150,120,255,0.12);
             font-size: 13px;
             transition: all 0.2s ease;
-            background-color: #1a1a1a;
-            color: #E8E8E8;
+            background-color: var(--bg-darker);
+            color: var(--light);
             font-weight: 500;
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         input[type="text"]:focus,
         input[type="password"]:focus {
-            border-color: #C0C0C0;
-            background-color: #252525;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 8px rgba(192, 192, 192, 0.3);
+            border-color: var(--accent);
+            background-color: var(--bg-darker);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 8px rgba(185,155,255,0.25);
             outline: none;
         }
 
         input[type="checkbox"] {
             margin-right: 8px;
             cursor: pointer;
-            accent-color: #A8A8A8;
+            accent-color: rgba(185,155,255,0.6);
         }
 
         input[type="checkbox"] + label {
@@ -171,11 +181,11 @@ if (isset($_POST["submit"])) {
         input[type="submit"] {
             width: 100%;
             padding: 11px;
-            background: linear-gradient(180deg, #D3D3D3 0%, #A8A8A8 100%);
-            color: #000000;
-            border: 2px solid #808080;
-            border-top: 1px solid #FFFFFF;
-            border-left: 1px solid #FFFFFF;
+            background: linear-gradient(180deg, var(--light) 0%, var(--accent) 100%);
+            color: var(--bg-dark);
+            border: 2px solid rgba(120,80,200,0.2);
+            border-top: 1px solid rgba(255,255,255,0.3);
+            border-left: 1px solid rgba(255,255,255,0.3);
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
@@ -187,7 +197,7 @@ if (isset($_POST["submit"])) {
         }
 
         input[type="submit"]:hover {
-            background: linear-gradient(180deg, #FFFFFF 0%, #C0C0C0 100%);
+            background: linear-gradient(180deg, #F8F4FF 0%, var(--light) 100%);
             transform: translateY(-1px);
             box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7);
         }
@@ -208,33 +218,33 @@ if (isset($_POST["submit"])) {
         }
 
         .error {
-            color: #000000;
-            background-color: #A8A8A8;
-            border-color: #606060;
+            color: var(--bg-dark);
+            background-color: var(--accent);
+            border-color: rgba(120,80,200,0.35);
         }
 
         .success {
-            color: #000000;
-            background-color: #C0C0C0;
-            border-color: #808080;
+            color: var(--bg-dark);
+            background-color: var(--light);
+            border-color: rgba(120,80,200,0.25);
         }
 
         a {
-            color: #E8E8E8;
+            color: var(--light);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s ease;
         }
 
         a:hover {
-            color: #FFFFFF;
+            color: var(--light);
         }
 
         .login-link {
             text-align: center;
             margin-top: 18px;
             font-size: 12px;
-            color: #A8A8A8;
+            color: var(--accent);
             font-weight: 500;
         }
     </style>
