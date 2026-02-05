@@ -15,11 +15,21 @@ session_start();
             font-family: 'Verdana', 'Arial', sans-serif;
         }
 
+        :root {
+            --bg-dark: #0a001a;
+            --bg-mid: #2b0b3d;
+            --bg-darker: #2a0a3a;
+            --accent: #B99BFF;
+            --accent-strong: #6F3FBF;
+            --light: #EDE7FF;
+            --muted: rgba(185, 155, 255, 0.05);
+        }
+
         body {
-            background-color: #0a0a0a;
+            background-color: var(--bg-dark);
             background-image: 
-                linear-gradient(0deg, transparent 24%, rgba(192, 192, 192, 0.05) 25%, rgba(192, 192, 192, 0.05) 26%, transparent 27%, transparent 74%, rgba(192, 192, 192, 0.05) 75%, rgba(192, 192, 192, 0.05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(192, 192, 192, 0.05) 25%, rgba(192, 192, 192, 0.05) 26%, transparent 27%, transparent 74%, rgba(192, 192, 192, 0.05) 75%, rgba(192, 192, 192, 0.05) 76%, transparent 77%, transparent);
+                linear-gradient(0deg, transparent 24%, var(--muted) 25%, var(--muted) 26%, transparent 27%, transparent 74%, var(--muted) 75%, var(--muted) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, var(--muted) 25%, var(--muted) 26%, transparent 27%, transparent 74%, var(--muted) 75%, var(--muted) 76%, transparent 77%, transparent);
             background-size: 50px 50px;
         }
 
@@ -27,24 +37,24 @@ session_start();
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
+            background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%);
             padding: 18px 40px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(192, 192, 192, 0.4);
-            border-bottom: 3px solid #C0C0C0;
-            border-top: 2px solid #E8E8E8;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9), inset 0 1px 0px rgba(185, 155, 255, 0.4);
+            border-bottom: 3px solid var(--accent);
+            border-top: 2px solid var(--light);
         }
 
         .top-bar h1 {
-            color: #C0C0C0;
+            color: var(--accent);
             font-size: 32px;
             font-weight: 700;
             letter-spacing: 2px;
             padding: 8px 20px;
-            border: 2px solid #E8E8E8;
+            border: 2px solid var(--light);
             display: inline-block;
             font-style: normal;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(185, 155, 255, 0.1) 0%, transparent 100%);
             font-family: 'Oswald', sans-serif;
         }
 
@@ -54,37 +64,37 @@ session_start();
         }
 
         #buttons {
-            color: #000000;
+            color: var(--bg-dark);
             text-decoration: none;
             padding: 10px 24px;
-            border: 2px solid #A8A8A8;
+            border: 2px solid rgba(185,155,255,0.45);
             border-radius: 3px;
             font-weight: 600;
             font-size: 12px;
             transition: all 0.2s ease;
             cursor: pointer;
-            background: linear-gradient(180deg, #E8E8E8 0%, #C0C0C0 100%);
+            background: linear-gradient(180deg, var(--light) 0%, var(--accent) 100%);
             letter-spacing: 1px;
             text-transform: uppercase;
             box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         #buttons:hover {
-            background: linear-gradient(180deg, #FFFFFF 0%, #D3D3D3 100%);
+            background: linear-gradient(180deg, #F8F4FF 0%, var(--light) 100%);
             transform: translateY(-1px);
             box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(0, 0, 0, 0.7);
         }
 
         #sale {
-            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+            background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%);
             padding: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-top: 2px solid #E8E8E8;
-            border-bottom: 3px solid #C0C0C0;
+            border-top: 2px solid var(--light);
+            border-bottom: 3px solid var(--accent);
             position: relative;
             overflow: hidden;
         }
@@ -135,7 +145,7 @@ session_start();
 
         .sale-header h2 {
             font-size: 36px;
-            color: #E8E8E8;
+            color: var(--light);
             margin-bottom: 10px;
             font-weight: 700;
             font-style: normal;
@@ -147,7 +157,7 @@ session_start();
 
         .sale-header p {
             font-size: 14px;
-            color: #C0C0C0;
+            color: var(--accent);
             letter-spacing: 1px;
             text-transform: lowercase;
         }
@@ -168,10 +178,10 @@ session_start();
         }
 
         .saleItem {
-            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-            border: 2px solid #C0C0C0;
+            background: linear-gradient(135deg, var(--bg-mid) 0%, var(--bg-darker) 100%);
+            border: 2px solid var(--accent);
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(192, 192, 192, 0.2), -5px 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(185, 155, 255, 0.2), -5px 5px 15px rgba(0, 0, 0, 0.5);
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             cursor: pointer;
             position: relative;
@@ -226,8 +236,8 @@ session_start();
 
         .saleItem:hover {
             transform: perspective(1200px) rotateY(0deg) rotateX(-5deg) scale(1.35) rotateZ(0deg) !important;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), inset 0 1px 0px rgba(192, 192, 192, 0.3), 0 0 30px rgba(192, 192, 192, 0.5), -12px 12px 35px rgba(0, 0, 0, 0.7);
-            border-color: #E8E8E8;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), inset 0 1px 0px rgba(185, 155, 255, 0.3), 0 0 30px rgba(185, 155, 255, 0.45), -12px 12px 35px rgba(0, 0, 0, 0.7);
+            border-color: var(--light);
             z-index: 100;
             opacity: 1;
         }
@@ -254,12 +264,12 @@ session_start();
         .saleItem h4 {
             padding: 15px;
             font-size: 12px;
-            color: #C0C0C0;
+            color: var(--accent);
             font-weight: 700;
             text-align: center;
             text-transform: lowercase;
             letter-spacing: 0.5px;
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(37, 37, 37, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(42, 8, 46, 0.95) 0%, rgba(37, 6, 46, 0.95) 100%);
             position: absolute;
             bottom: 0;
             left: 0;
@@ -269,7 +279,7 @@ session_start();
         }
 
         .saleItem a {
-            color: #E8E8E8;
+            color: var(--light);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -279,19 +289,19 @@ session_start();
         }
 
         .saleItem a:hover {
-            color: #FFFFFF;
+            color: var(--light);
         }
 
         footer {
-            background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
-            color: #C0C0C0;
+            background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%);
+            color: var(--accent);
             padding: 50px 40px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-top: 60px;
-            border-top: 3px solid #C0C0C0;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(192, 192, 192, 0.3);
+            border-top: 3px solid var(--accent);
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.8), inset 0 1px 0px rgba(185, 155, 255, 0.3);
         }
 
         footer div {
@@ -302,7 +312,7 @@ session_start();
             font-size: 14px;
             margin-bottom: 12px;
             font-weight: 600;
-            color: #E8E8E8;
+            color: var(--light);
             font-style: normal;
             text-transform: lowercase;
             letter-spacing: 0.5px;
@@ -311,19 +321,19 @@ session_start();
         footer div p {
             font-size: 12px;
             line-height: 1.8;
-            color: #A8A8A8;
+            color: var(--accent);
         }
 
         footer a {
-            color: #E8E8E8;
+            color: var(--light);
             text-decoration: none;
             transition: color 0.2s ease;
             font-weight: 600;
         }
 
         footer a:hover {
-            color: #FFFFFF;
-            text-shadow: 0 0 8px rgba(192, 192, 192, 0.5);
+            color: var(--light);
+            text-shadow: 0 0 12px rgba(185,155,255,0.45);
         }
     </style>
 </head>
