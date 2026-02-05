@@ -9,19 +9,11 @@ if (!isset($_SESSION['admin'])) {
 
 include '../../config/db.php';
 
-// Fetch orders with user info
+// Fetch payments from orders table
 $res = mysqli_query($conn, "
-    SELECT 
-        o.id,
-        o.user_id,
-        o.total,
-        o.payment_status,
-        o.created_at,
-        u.name AS user_name,
-        u.email AS user_email
-    FROM orders o
-    LEFT JOIN users u ON o.user_id = u.id
-    ORDER BY o.created_at DESC
+    SELECT id, user_id, total, payment_status, created_at 
+    FROM orders 
+    ORDER BY created_at DESC
 ");
 ?>
 
@@ -30,41 +22,16 @@ $res = mysqli_query($conn, "
 <head>
 <meta charset="UTF-8">
 <title>Admin - Payments</title>
-
 <style>
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #f0f2f5;
+        background: #f4f6f8;
     }
 
     .admin-wrapper {
         display: flex;
         min-height: 100vh;
-    }
-
-    .sidebar {
-        width: 220px;
-        background: #343a40;
-        color: #fff;
-        padding: 20px;
-    }
-
-    .sidebar h2 {
-        margin-top: 0;
-        font-size: 22px;
-    }
-
-    .sidebar a {
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        margin: 12px 0;
-        font-weight: bold;
-    }
-
-    .sidebar a:hover {
-        color: #ffc107;
     }
 
     .main {
@@ -73,15 +40,15 @@ $res = mysqli_query($conn, "
     }
 
     h1 {
+        margin-bottom: 20px;
         font-size: 28px;
         color: #333;
-        margin-bottom: 20px;
     }
 
     .table-box {
         background: #fff;
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
@@ -106,12 +73,11 @@ $res = mysqli_query($conn, "
     }
 
     .badge {
-        padding: 6px 16px;
+        padding: 5px 12px;
         border-radius: 20px;
         font-size: 12px;
         color: #fff;
         font-weight: bold;
-        display: inline-block;
     }
 
     .paid {
@@ -119,7 +85,7 @@ $res = mysqli_query($conn, "
     }
 
     .cod {
-        background: #007bff;
+        background: #007bff; /* blue for COD */
     }
 
     .pending {
@@ -134,23 +100,12 @@ $res = mysqli_query($conn, "
     }
 </style>
 </head>
-
 <body>
 
 <div class="admin-wrapper">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h2>Admin Panel</h2>
-        <a href="../index.php">Dashboard</a>
-        <a href="../products/list.php">Products</a>
-        <a href="../users/list.php">Users</a>
-        <a href="../orders/list.php">Orders</a>
-        <a href="list.php">Payments</a>
-        <a href="../logout.php">Logout</a>
-    </div>
+    <?php include '../includes/sidebar.php'; ?>
 
-    <!-- MAIN CONTENT -->
     <div class="main">
         <h1>Payments</h1>
 
@@ -158,7 +113,7 @@ $res = mysqli_query($conn, "
             <table>
                 <tr>
                     <th>Order ID</th>
-                    <th>User</th>
+                    <th>User ID</th>
                     <th>Amount</th>
                     <th>Status</th>
                     <th>Date</th>
@@ -168,45 +123,30 @@ $res = mysqli_query($conn, "
                     <?php while ($p = mysqli_fetch_assoc($res)): ?>
 
                         <?php
-                        // Payment status logic
+                        // Map payment status
                         if ($p['payment_status'] === 'O') {
-                            $status_text  = 'Cash on Delivery';
+                            $status_text = 'Cash on Delivery';
                             $status_class = 'cod';
-
-                        } elseif (strtoupper($p['payment_status']) === 'PAID') {
-                            $status_text  = 'PAID';
+                        } elseif (strtolower($p['payment_status']) === 'paid') {
+                            $status_text = 'PAID';
                             $status_class = 'paid';
-
                         } else {
-                            $status_text  = 'PENDING';
+                            $status_text = strtoupper($p['payment_status']);
                             $status_class = 'pending';
                         }
                         ?>
 
                         <tr>
                             <td>#<?= htmlspecialchars($p['id']) ?></td>
-
-                            <td>
-                                <?= htmlspecialchars(
-                                    $p['user_name'] 
-                                    ?? $p['user_email'] 
-                                    ?? 'User ID: '.$p['user_id']
-                                ) ?>
-                            </td>
-
+                            <td><?= htmlspecialchars($p['user_id']) ?></td>
                             <td>₹<?= number_format($p['total'], 2) ?></td>
-
                             <td>
                                 <span class="badge <?= $status_class ?>">
                                     <?= $status_text ?>
                                 </span>
                             </td>
-
-                            <td>
-                                <?= date('d M Y, h:i A', strtotime($p['created_at'])) ?>
-                            </td>
+                            <td><?= date('d M Y, h:i A', strtotime($p['created_at'])) ?></td>
                         </tr>
-
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr>
@@ -216,7 +156,6 @@ $res = mysqli_query($conn, "
             </table>
         </div>
     </div>
-
 </div>
 
 </body>
