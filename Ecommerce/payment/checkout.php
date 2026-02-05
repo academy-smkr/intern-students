@@ -1,0 +1,156 @@
+<?php
+session_start();
+include '../config/db.php';
+
+if (!isset($_SESSION['user'])) {
+     header("Location: ../auth/login.php");
+     exit();
+}
+
+if (!isset($_POST['method'])) {
+     die('Payment method not selected');
+}
+
+$uid = $_SESSION['user'];
+$method = $_POST['method'];
+$total = 0;
+
+// 1️⃣ Calculate total from cart
+$cart = mysqli_query($conn, "
+     SELECT p.price, c.qty
+     FROM cart c
+     JOIN products p ON c.product_id = p.id
+     WHERE c.user_id = $uid
+");
+
+while ($row = mysqli_fetch_assoc($cart)) {
+     $total += $row['price'] * $row['qty'];
+}
+
+// Safety check
+if ($total <= 0) {
+     die('Cart is empty');
+}
+
+// 2️⃣ Decide payment status
+if ($method === 'COD') {
+     $payment_status = 'Cash on Delivery';
+} else {
+     $payment_status = 'Paid';
+}
+
+// 3️⃣ Insert order
+mysqli_query($conn, "
+     INSERT INTO orders (user_id, total, payment_status)
+     VALUES ($uid, $total, '$payment_status')
+");
+
+// 4️⃣ Clear cart
+mysqli_query($conn, "DELETE FROM cart WHERE user_id = $uid");
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Success - MyShop</title>
+
+<style>
+body {
+     font-family: Arial, sans-serif;
+     background: #f4f6f8;
+    margin: 0;
+}
+
+.navbar {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background: #007bff;
+     padding: 15px 30px;
+     color: white;
+}
+
+.navbar a {
+     color: white;
+     text-decoration: none;
+     margin-left: 15px;
+     font-weight: bold;
+}
+
+.success-container {
+     max-width: 500px;
+     margin: 80px auto;
+     background: white;
+     padding: 40px;
+     border-radius: 12px;
+     text-align: center;
+     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.icon {
+     font-size: 60px;
+     color: #28a745;
+}
+
+.success-container h1 {
+     color: #28a745;
+     margin-bottom: 10px;
+}
+
+.success-container h3 {
+     color: #007bff;
+     margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+     text-decoration: none;
+     color: white;
+     border-radius: 8px;
+     font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-primary {
+     background: #007bff;
+}
+
+.btn-success {
+     background: #28a745;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+     <h2>MyShop</h2>
+     <div>
+         <a href="../index.php">Home</a>
+         <a href="../product.php">Products</a>
+        <a href="../auth/logout.php">Logout</a>
+     </div>
+</div>
+
+<div class="success-container">
+     <div class="icon">✔️</div>
+
+     <h1>Order Placed Successfully!</h1>
+
+     <h3>
+         Bill Amount: ₹<?= number_format($total, 2) ?>
+     </h3>
+
+     <p>
+         Payment Method: <b><?= htmlspecialchars($method) ?></b><br>
+         Payment Status: <b><?= $payment_status ?></b>
+     </p>
+
+    <a href="../index.php" class="btn btn-primary">Continue Shopping</a><br>
+    <a href="../orders.php" class="btn btn-success">View Orders</a>
+</div>
+
+</body>
+</html>

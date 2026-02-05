@@ -8,7 +8,7 @@ if(!isset($_SESSION['admin'])){
 <html>
 <head>
 <title>Admin Panel</title>
-<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
 <!DOCTYPE html>
 <html>
 <head>

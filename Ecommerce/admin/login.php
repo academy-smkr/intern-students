@@ -21,7 +21,7 @@ if(isset($_POST['login'])){
 
     if($admin && password_verify($pass, $admin['password'])){
         $_SESSION['admin'] = $admin['id'];
-        header("Location: index1.php"); // Admin dashboard
+        header("Location: index.php"); // Admin dashboard
         exit();
     } else {
         $message = "Invalid email or password!";
