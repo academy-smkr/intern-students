@@ -6,29 +6,23 @@ include 'config/db.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products - MyShop</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        body { font-family: Arial; background: #f4f6f8; margin:0; padding:0; }
-        .navbar { display:flex; justify-content:space-between; align-items:center; background:#007bff; color:white; padding:15px 30px; }
-        .navbar a { color:white; margin-left:15px; text-decoration:none; font-weight:bold; }
-        .section-title { text-align:center; margin:40px 0 20px; color:#333; }
-        .products { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto; padding:0 20px; }
-        .card { background:white; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); width:250px; text-align:center; padding:15px; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width:100%; border-radius:10px; cursor:pointer; }
-        .card h3 { margin:10px 0; color:#333; cursor:pointer; }
-        .card p { font-size:16px; color:#007bff; font-weight:bold; }
-        .btn { display:inline-block; padding:10px 20px; margin-top:10px; background:#007bff; color:white; text-decoration:none; border-radius:5px; font-weight:bold; }
-        .btn:hover { background:#0056b3; }
-    </style>
 </head>
 <body>
 
 <!-- ===== NAVBAR ===== -->
 <div class="navbar">
     <h2>MyShop</h2>
-    <div>
+    <div class="navbar-left">
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search products...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+    <div class="navbar-right">
         <a href="index.php">Home</a>
         <?php if(isset($_SESSION['user'])): ?>
             <a href="cart/cart.php">Cart</a>
@@ -50,7 +44,7 @@ if(mysqli_num_rows($res) > 0):
     while($row = mysqli_fetch_assoc($res)):
 ?>
     <div class="card">
-        <a href="product_details.php?id=<?= $row['id'] ?>">
+        <a href="products_details.php?id=<?= $row['id'] ?>">
             <img src="assets/images/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
             <h3><?= htmlspecialchars($row['name']) ?></h3>
         </a>
@@ -65,10 +59,51 @@ if(mysqli_num_rows($res) > 0):
 <?php
     endwhile;
 else:
-    echo "<p style='text-align:center; width:100%;'>No products found.</p>";
+    echo "<p style='text-align:center; width:100%; padding: 40px;'>No products found.</p>";
 endif;
 ?>
 </div>
+
+<!-- ===== SEARCH SCRIPT ===== -->
+<script>
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', function() {
+    const query = this.value.trim();
+    
+    if (query.length < 2) {
+        searchResults.classList.remove('active');
+        return;
+    }
+    
+    fetch('search.php?q=' + encodeURIComponent(query))
+        .then(response => response.text())
+        .then(data => {
+            searchResults.innerHTML = data;
+            if (data.trim()) {
+                searchResults.classList.add('active');
+            } else {
+                searchResults.classList.remove('active');
+            }
+        });
+});
+
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.search-container')) {
+        searchResults.classList.remove('active');
+    }
+});
+
+document.addEventListener('click', function(event) {
+    if (event.target.closest('.search-result-item')) {
+        const productId = event.target.closest('.search-result-item').dataset.productId;
+        if (productId) {
+            window.location.href = 'products_details.php?id=' + productId;
+        }
+    }
+});
+</script>
 
 </body>
 </html>

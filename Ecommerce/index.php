@@ -13,7 +13,15 @@ include 'config/db.php';
 <!-- ===== NAVBAR ===== -->
 <div class="navbar">
     <h2>MyShop</h2>
-    <div>
+    <div class="navbar-left">
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search products...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+    <div class="navbar-right">
+        <a href="products.php">All Products</a>
         <?php if(isset($_SESSION['user'])): ?>
             <a href="cart/cart.php">Cart</a>
             <a href="auth/logout.php">Logout</a>
@@ -112,12 +120,57 @@ function showSlides(){
     let slides = document.getElementsByClassName("slides");
     for(let i = 0; i < slides.length; i++){
         slides[i].style.display = "none";
+        slides[i].classList.remove("active");
     }
     slideIndex++;
     if(slideIndex > slides.length){ slideIndex = 1; }
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 3000);
+    slides[slideIndex - 1].classList.add("active");
+    setTimeout(showSlides, 4000);
 }
+</script>
+
+<!-- ===== SEARCH SCRIPT ===== -->
+<script>
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchInput.addEventListener('input', function() {
+    const query = this.value.trim();
+    
+    if (query.length < 2) {
+        searchResults.classList.remove('active');
+        return;
+    }
+    
+    fetch('search.php?q=' + encodeURIComponent(query))
+        .then(response => response.text())
+        .then(data => {
+            searchResults.innerHTML = data;
+            if (data.trim()) {
+                searchResults.classList.add('active');
+            } else {
+                searchResults.classList.remove('active');
+            }
+        });
+});
+
+// Close search results when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.search-container')) {
+        searchResults.classList.remove('active');
+    }
+});
+
+// Click on search result to go to product
+document.addEventListener('click', function(event) {
+    if (event.target.closest('.search-result-item')) {
+        const productId = event.target.closest('.search-result-item').dataset.productId;
+        if (productId) {
+            window.location.href = 'products_details.php?id=' + productId;
+        }
+    }
+});
 </script>
 
 </body>
