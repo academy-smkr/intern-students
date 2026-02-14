@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#a1c4fd"/>
+      <stop offset="1" stop-color="#c2e9fb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" fill="url(#g2)"/>
+  <rect x="70" y="70" width="260" height="220" rx="18" fill="#ffffffaa"/>
+  <g fill="#2f3a45">
+    <circle cx="190" cy="160" r="46"/>
+    <circle cx="150" cy="120" r="20"/>
+    <circle cx="230" cy="120" r="20"/>
+    <circle cx="160" cy="210" r="16"/>
+    <circle cx="220" cy="210" r="16"/>
+  </g>
+  <text x="380" y="150" font-family="Georgia, serif" font-size="52" fill="#2f3a45">Care That Feels Like Home</text>
+  <text x="380" y="205" font-family="Arial, sans-serif" font-size="24" fill="#2f3a45">Grooming, bedding, and daily wellness</text>
+</svg>

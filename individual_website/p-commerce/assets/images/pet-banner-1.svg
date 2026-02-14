@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6d365"/>
+      <stop offset="1" stop-color="#fda085"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" fill="url(#g1)"/>
+  <circle cx="980" cy="140" r="90" fill="#fff3"/>
+  <circle cx="1040" cy="220" r="60" fill="#fff4"/>
+  <g fill="#3a2f2f">
+    <circle cx="140" cy="120" r="28"/>
+    <circle cx="220" cy="120" r="28"/>
+    <circle cx="180" cy="160" r="40"/>
+    <circle cx="150" cy="190" r="16"/>
+    <circle cx="210" cy="190" r="16"/>
+  </g>
+  <text x="320" y="150" font-family="Georgia, serif" font-size="54" fill="#3a2f2f">PawMart Pet Shop</text>
+  <text x="320" y="205" font-family="Arial, sans-serif" font-size="24" fill="#3a2f2f">Premium food, toys, and care essentials</text>
+</svg>

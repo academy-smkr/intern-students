@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d4fc79"/>
+      <stop offset="1" stop-color="#96e6a1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" fill="url(#g3)"/>
+  <circle cx="980" cy="120" r="80" fill="#ffffff66"/>
+  <circle cx="1080" cy="210" r="50" fill="#ffffff66"/>
+  <g fill="#2c3e2f">
+    <rect x="120" y="140" width="140" height="90" rx="18"/>
+    <circle cx="150" cy="130" r="20"/>
+    <circle cx="230" cy="130" r="20"/>
+    <circle cx="160" cy="230" r="14"/>
+    <circle cx="220" cy="230" r="14"/>
+  </g>
+  <text x="320" y="150" font-family="Georgia, serif" font-size="52" fill="#2c3e2f">Play, Train, Repeat</text>
+  <text x="320" y="205" font-family="Arial, sans-serif" font-size="24" fill="#2c3e2f">Toys and treats for happy pets</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f7fa"/>
+      <stop offset="1" stop-color="#c3cfe2"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#g)"/>
+  <g fill="#3a4a5a">
+    <circle cx="240" cy="240" r="48"/>
+    <circle cx="360" cy="240" r="48"/>
+    <circle cx="300" cy="320" r="70"/>
+    <circle cx="250" cy="370" r="24"/>
+    <circle cx="350" cy="370" r="24"/>
+  </g>
+  <text x="300" y="470" font-family="Arial, sans-serif" font-size="28" fill="#3a4a5a" text-anchor="middle">Pet Product</text>
+</svg>
