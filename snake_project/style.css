@@ -1,57 +1,60 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 body {
-    background: #0f172a;
-    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+.login-body {
+    margin: 0;
     height: 100vh;
+    background: url('snake_bg.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container {
+.login-container {
+    background: rgba(0,0,0,0.8);
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    width: 400px;
+}
+
+input {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 10px;
+    margin: 10px 0;
 }
 
-h1, h2 {
-    margin-bottom: 15px;
+button {
+    padding: 10px;
+    width: 100%;
+    background: limegreen;
+    border: none;
+    cursor: pointer;
 }
 
-.game-board table {
-    border-collapse: collapse;
+.error {
+    color: red;
 }
 
-.game-board td {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #334155;
+.board {
+    width: 600px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(20, 30px);
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
 }
 
 .snake {
-    background: #22c55e;
+    background: green;
 }
 
 .food {
-    background: #ef4444;
-}
-
-.controls {
-    margin-top: 20px;
-}
-
-.controls button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    background: red;
 }
