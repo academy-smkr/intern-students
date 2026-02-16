@@ -51,12 +51,3 @@ if (
     echo "<h1>Game Over</h1>";
 }
 
-// 🍎 Food collision
-if ($head[0] === $_SESSION['food'][0] && $head[1] === $_SESSION['food'][1]) {
-    $_SESSION['score']++;
-    $_SESSION['snake'][] = $head;
-    $_SESSION['food'] = [rand(0, $gridSize - 1), rand(0, $gridSize - 1)];
-} else {
-    array_unshift($_SESSION['snake'], $head);
-    array_pop($_SESSION['snake']);
-}
