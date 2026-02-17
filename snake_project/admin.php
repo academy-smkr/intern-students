@@ -2,7 +2,7 @@
 session_start();
 include 'db.php';
 
-if ($_SESSION['role'] !== 'admin') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     die("Access denied.");
 }
 
@@ -30,9 +30,9 @@ $result = $conn->query("SELECT * FROM users");
     <td><?= $row['blocked'] ? "Blocked" : "Active" ?></td>
     <td>
         <?php if ($row['blocked']): ?>
-            <a href="unblock_user.php?id=<?= $row['id'] ?>">Unblock</a>
+            <a href="unblockuser.php?id=<?= $row['id'] ?>">Unblock</a>
         <?php else: ?>
-            <a href="block_user.php?id=<?= $row['id'] ?>">Block</a>
+            <a href="block.php?id=<?= $row['id'] ?>">Block</a>
         <?php endif; ?>
     </td>
 </tr>
