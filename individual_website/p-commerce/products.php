@@ -22,6 +22,10 @@ include 'config/db.php';
         .card p { font-size:16px; color:var(--brand); font-weight:bold; }
         .btn { display:inline-block; padding:10px 20px; margin-top:10px; background:var(--accent); color:white; text-decoration:none; border-radius:5px; font-weight:bold; }
         .btn:hover { background:var(--accent-dark); }
+        .stock-badge { display:inline-block; margin-top:8px; padding:6px 10px; border-radius:12px; font-size:12px; font-weight:bold; }
+        .in-stock { background:#e8f5e9; color:#2e7d32; }
+        .out-stock { background:#ffebee; color:#c62828; }
+        .btn.disabled { background:#cfd8dc; color:#607d8b; pointer-events:none; }
     </style>
 </head>
 <body>
@@ -56,9 +60,18 @@ if(mysqli_num_rows($res) > 0):
             <h3><?= htmlspecialchars($row['name']) ?></h3>
         </a>
         <p>₹<?= number_format($row['price'], 2) ?></p>
+        <?php if (($row['stock'] ?? 0) > 0): ?>
+            <span class="stock-badge in-stock">In Stock (<?= (int)$row['stock'] ?>)</span>
+        <?php else: ?>
+            <span class="stock-badge out-stock">Out of Stock</span>
+        <?php endif; ?>
 
         <?php if(isset($_SESSION['user'])): ?>
-            <a href="cart/add_to_cart.php?id=<?= $row['id'] ?>" class="btn">Add to Cart</a>
+            <?php if (($row['stock'] ?? 0) > 0): ?>
+                <a href="cart/add_to_cart.php?id=<?= $row['id'] ?>" class="btn">Add to Cart</a>
+            <?php else: ?>
+                <span class="btn disabled">Unavailable</span>
+            <?php endif; ?>
         <?php else: ?>
             <a href="auth/login.php" class="btn">Login to Shop</a>
         <?php endif; ?>

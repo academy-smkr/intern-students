@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="24" fill="#ffffff"/>
+  <rect x="24" y="24" width="464" height="464" rx="20" fill="#f6f7f8" stroke="#cfd8dc" stroke-width="4"/>
+  <g fill="#1f6f5f">
+    <rect x="56" y="56" width="120" height="120" rx="8"/>
+    <rect x="336" y="56" width="120" height="120" rx="8"/>
+    <rect x="56" y="336" width="120" height="120" rx="8"/>
+  </g>
+  <g fill="#ffffff">
+    <rect x="76" y="76" width="80" height="80" rx="6"/>
+    <rect x="356" y="76" width="80" height="80" rx="6"/>
+    <rect x="76" y="356" width="80" height="80" rx="6"/>
+  </g>
+  <g fill="#1f6f5f">
+    <rect x="96" y="96" width="40" height="40" rx="4"/>
+    <rect x="376" y="96" width="40" height="40" rx="4"/>
+    <rect x="96" y="376" width="40" height="40" rx="4"/>
+  </g>
+  <g fill="#1f6f5f">
+    <rect x="216" y="212" width="20" height="20"/>
+    <rect x="248" y="212" width="20" height="20"/>
+    <rect x="280" y="212" width="20" height="20"/>
+    <rect x="216" y="244" width="20" height="20"/>
+    <rect x="260" y="244" width="20" height="20"/>
+    <rect x="300" y="244" width="20" height="20"/>
+    <rect x="216" y="276" width="20" height="20"/>
+    <rect x="248" y="276" width="20" height="20"/>
+    <rect x="280" y="276" width="20" height="20"/>
+    <rect x="312" y="276" width="20" height="20"/>
+  </g>
+  <text x="256" y="330" font-family="Arial, sans-serif" font-size="20" fill="#203036" text-anchor="middle">
+    UPI QR
+  </text>
+</svg>

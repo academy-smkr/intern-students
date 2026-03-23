@@ -42,6 +42,10 @@ if (!$p) {
         .price { font-size:22px; font-weight:bold; margin:20px 0; color:var(--brand); }
         .btn { display:inline-block; padding:10px 20px; margin-right:10px; margin-top:10px; background:var(--accent); color:white; text-decoration:none; border-radius:5px; font-weight:bold; }
         .btn:hover { background:var(--accent-dark); }
+        .stock-badge { display:inline-block; margin-top:6px; padding:6px 10px; border-radius:12px; font-size:12px; font-weight:bold; }
+        .in-stock { background:#e8f5e9; color:#2e7d32; }
+        .out-stock { background:#ffebee; color:#c62828; }
+        .btn.disabled { background:#cfd8dc; color:#607d8b; pointer-events:none; }
         .description { margin-top:20px; font-size:15px; color:#5b6a70; line-height:1.8; }
     </style>
 </head>
@@ -72,9 +76,18 @@ if (!$p) {
     <div class="product-details">
         <h2><?= htmlspecialchars($p['name'] ?? 'Pet Item') ?></h2>
         <div class="price">₹<?= number_format($p['price'] ?? 0, 2) ?></div>
+        <?php if (($p['stock'] ?? 0) > 0): ?>
+            <span class="stock-badge in-stock">In Stock (<?= (int)$p['stock'] ?>)</span>
+        <?php else: ?>
+            <span class="stock-badge out-stock">Out of Stock</span>
+        <?php endif; ?>
 
         <?php if(isset($_SESSION['user'])): ?>
-            <a href="cart/add_to_cart.php?id=<?= $p['id'] ?>" class="btn">Add to Cart</a>
+            <?php if (($p['stock'] ?? 0) > 0): ?>
+                <a href="cart/add_to_cart.php?id=<?= $p['id'] ?>" class="btn">Add to Cart</a>
+            <?php else: ?>
+                <span class="btn disabled">Unavailable</span>
+            <?php endif; ?>
             <a href="cart/wishlist.php?id=<?= $p['id'] ?>" class="btn">Add to Wishlist</a>
         <?php else: ?>
             <a href="auth/login.php" class="btn">Login to Shop</a>

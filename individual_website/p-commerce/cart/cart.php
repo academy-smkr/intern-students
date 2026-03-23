@@ -100,6 +100,40 @@ th{
     text-decoration:none;
     border-radius:5px;
 }
+.checkout-form{
+    margin-top:30px;
+}
+.form-section-title{
+    margin:20px 0 10px;
+    color:var(--brand-dark);
+}
+.address-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:12px;
+    max-width:700px;
+    margin:0 auto 10px;
+}
+.address-grid .full{
+    grid-column:1 / -1;
+}
+.address-grid input,
+.address-grid textarea{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid #cfd8dc;
+    border-radius:6px;
+    font-family:inherit;
+    font-size:14px;
+    box-sizing:border-box;
+}
+.address-grid textarea{
+    resize:vertical;
+    min-height:70px;
+}
+.payment-options{
+    text-align:center;
+}
 
 /* EMPTY CART */
 .empty-cart{
@@ -203,21 +237,34 @@ if ($result->num_rows > 0) {
     echo "</table>";
     echo "<div class='total'><b>Total: ₹ $total</b></div>";
     ?>
-    <form action="../payment/checkout.php" method="POST" style="text-align:center; margin-top:30px;">
+    <form action="../payment/checkout.php" method="POST" class="checkout-form">
 
-    <h3>Select Payment Method</h3>
+    <h3 class="form-section-title">Delivery Address</h3>
+    <div class="address-grid">
+        <input type="text" name="full_name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="text" name="address_line1" placeholder="House no. / Street / Area" class="full" required>
+        <input type="text" name="address_line2" placeholder="Apartment / Landmark (optional)" class="full">
+        <input type="text" name="city" placeholder="City" required>
+        <input type="text" name="state" placeholder="State" required>
+        <input type="text" name="pincode" placeholder="Pincode" required>
+    </div>
 
-    <label>
-        <input type="radio" name="method" value="COD" required>
-        Cash on Delivery
-    </label>
-    <br><br>
+    <h3 class="form-section-title">Select Payment Method</h3>
 
-    <label>
-        <input type="radio" name="method" value="ONLINE">
-        Online Payment
-    </label>
-    <br><br>
+    <div class="payment-options">
+        <label>
+            <input type="radio" name="method" value="COD" required>
+            Cash on Delivery
+        </label>
+        <br><br>
+
+        <label>
+            <input type="radio" name="method" value="ONLINE">
+            Online Payment
+        </label>
+        <br><br>
+    </div>
 
     <button type="submit" class="checkout-btn">
         Place Pet Order
